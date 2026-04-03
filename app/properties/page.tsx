@@ -3,10 +3,22 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { PropertyType, properties } from "@/data/properties";
 
 export default function PropertiesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="section-wrap py-10 md:py-14">Loading properties...</div>
+      }
+    >
+      <PropertiesPageContent />
+    </Suspense>
+  );
+}
+
+function PropertiesPageContent() {
   const searchParams = useSearchParams();
 
   const locations = useMemo(

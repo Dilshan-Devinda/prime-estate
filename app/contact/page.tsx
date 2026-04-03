@@ -2,10 +2,24 @@
 
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, Suspense, useState } from "react";
 import { properties } from "@/data/properties";
 
 export default function ContactPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="section-wrap py-10 md:py-14">
+          Loading contact form...
+        </div>
+      }
+    >
+      <ContactPageContent />
+    </Suspense>
+  );
+}
+
+function ContactPageContent() {
   const searchParams = useSearchParams();
   const selectedPropertyId = searchParams.get("propertyId") ?? "";
   const selectedProperty = properties.find(
