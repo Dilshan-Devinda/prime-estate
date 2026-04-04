@@ -109,7 +109,7 @@ export const properties: Property[] = [
     gallery: [
       "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=80",
       "https://images.unsplash.com/photo-1611095210561-67f0832b1ca3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1600563438938-a9a27216b0d7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80",
     ],
     description:
       "Balanced between heritage charm and modern comfort, this estate offers a warm and polished living experience.",

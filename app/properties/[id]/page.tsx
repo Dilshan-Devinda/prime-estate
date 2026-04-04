@@ -19,6 +19,10 @@ export default async function PropertyDetailPage({
     notFound();
   }
 
+  const mapQuery = encodeURIComponent(`${property.location}, Sri Lanka`);
+  const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+  const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
   return (
     <div className="section-wrap py-10 md:py-14">
       <Link
@@ -75,9 +79,23 @@ export default async function PropertyDetailPage({
             <p className="text-sm uppercase tracking-[0.08em] text-[var(--color-muted)]">
               Map Preview
             </p>
-            <p className="mt-2 text-sm">
-              {property.location} central district map placeholder.
-            </p>
+            <div className="mt-3 overflow-hidden rounded-lg border border-black/10 bg-white">
+              <iframe
+                src={mapEmbedUrl}
+                title={`${property.location} map preview`}
+                className="h-56 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <a
+              href={mapLinkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-muted)] hover:text-[var(--color-primary)]"
+            >
+              Open In Google Maps
+            </a>
           </div>
 
           <Link
